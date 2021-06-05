@@ -11,7 +11,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DO YOU SUFFER FROM ANY HEALTH DISEASES ?"
+        android:text="WHAT IS YOUR  D.O.B ?"
         android:textColor="@android:color/background_dark"
         android:textSize="30sp"
         android:gravity="center"
@@ -19,7 +19,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textTv"
+        android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="PRESS MIC BUTTON TO INPUT VOICE"
@@ -30,7 +30,7 @@
         android:textSize="20sp"/>
 
     <ImageButton
-        android:id="@+id/voiceBtn"
+        android:id="@+id/date"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
@@ -57,41 +57,4 @@
         android:gravity="center"
         android:textColor="@android:color/darker_gray"
         android:textSize="20sp"/>
-    <TextView
-        android:id="@+id/t2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="20sp"/>
-    <TextView
-        android:id="@+id/t3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="20sp"/>
-    <TextView
-    android:id="@+id/t4"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text=""
-    android:textStyle="bold"
-
-    android:gravity="center"
-    android:textColor="@android:color/darker_gray"
-    android:textSize="20sp"/>
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="NEXT" />
-
-
 </LinearLayout>

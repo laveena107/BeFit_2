@@ -7,11 +7,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SPEECH_INPUT = 1000 ;
     TextView mTextTv,t1,t2,t3,t4;
+    Button b,next;
     ImageButton mVoiceBtn;
 
 
@@ -33,6 +36,8 @@ public class MainActivity2 extends AppCompatActivity {
         t2 = findViewById(R.id.t2);
         t3= findViewById(R.id.t3);
         t4 = findViewById(R.id.t4);
+        b = findViewById(R.id.button);
+        next = findViewById(R.id.button1);
 
         mVoiceBtn = findViewById(R.id.voiceBtn);
 
@@ -83,43 +88,71 @@ public class MainActivity2 extends AppCompatActivity {
             case REQUEST_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null!=data) {
                     //get text array from voice input
+
                     ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     // set to text view
                     mTextTv.setText(result.get(0));
-                    //String a[]={};
-                    //ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(a));
+
+                    String listString = "";
+
+                    for (String s : result)
+                    {
+                        listString += s.toLowerCase() + "\t";
+                    }
+
+
 
                     String s1="diabetes";
                     String s2="thyroid";
                     String s3="cancer";
                     String s4="no disease";
 
-                    if (result.contains(s1))
+                    if (listString.contains(s1))
                     {
                         //System.out.println(s1);
                         t1.setText(s1);
                     }
-                    if (result.contains(s2))
+                    if (listString.contains(s2))
                     {
                         // System.out.println(s2);
                         t2.setText(s2);
                     }
-                    if (result.contains(s3))
+                    if (listString.contains(s3))
                     {
                         //System.out.println(s3);
                         t3.setText(s3);
                     }
-                    if (result.contains(s4))
+                    if (listString.contains(s4))
                     {
                         //System.out.println(s3);
                         t4.setText(s4);
                     }
 
 
+
                 }
                 break;
             }
         }
+
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                t1.setText(" ");
+                t2.setText(" ");
+                t3.setText(" ");
+                t4.setText(" ");
+            }
+        });
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity2.this,MainActivity3.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
